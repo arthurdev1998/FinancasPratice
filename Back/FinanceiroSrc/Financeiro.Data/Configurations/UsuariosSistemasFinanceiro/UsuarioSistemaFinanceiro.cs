@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Financeiro.Data.Configurations.SistemasFinanceiros;
 
+
 namespace Financeiro.Data.Configurations.UsuariosSistemasFinanceiro;
 
 [Table("usuariosistemafinanceiro")]
 public class UsuarioSistemaFinanceiro
 {
+
     [Column("cod_serial_userfinacesystem")]
     public int Id { get; set; }
 
