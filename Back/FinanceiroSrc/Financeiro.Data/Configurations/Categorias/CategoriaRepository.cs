@@ -17,7 +17,7 @@ public class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
         _unitofWork = unitofWork;
     }
 
-    public async Task<Categoria?> GetById(int id)
+    public async Task<Categoria?> GetById(int? id)
     {
         return await _db.Categorias.SingleOrDefaultAsync(x => x.Id == id);
     }
