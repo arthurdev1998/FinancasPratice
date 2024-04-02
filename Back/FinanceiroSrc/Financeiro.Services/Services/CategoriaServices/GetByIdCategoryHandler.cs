@@ -10,4 +10,6 @@ public class GetByIdCategoryHandler
     {
         _context = context;
     }
+
+    
 }

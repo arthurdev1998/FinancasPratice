@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Financeiro.Data.Configurations.SistemasFinanceiros;
 
-
 namespace Financeiro.Data.Configurations.UsuariosSistemasFinanceiro;
 
 [Table("usuariosistemafinanceiro")]
