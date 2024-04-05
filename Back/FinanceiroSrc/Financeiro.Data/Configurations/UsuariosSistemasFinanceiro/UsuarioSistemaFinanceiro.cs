@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Financeiro.Common.Notifications;
 using Financeiro.Data.Configurations.SistemasFinanceiros;
 
 namespace Financeiro.Data.Configurations.UsuariosSistemasFinanceiro;
 
 [Table("usuariosistemafinanceiro")]
-public class UsuarioSistemaFinanceiro
+public class UsuarioSistemaFinanceiro : Notification
 {
 
     [Column("cod_serial_userfinacesystem")]

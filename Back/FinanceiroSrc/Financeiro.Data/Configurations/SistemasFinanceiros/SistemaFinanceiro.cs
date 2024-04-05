@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Financeiro.Common.Notifications;
 
 namespace Financeiro.Data.Configurations.SistemasFinanceiros;
 
 [Table("sistemafinanceiro")]
-public class SistemaFinanceiro
+public class SistemaFinanceiro :Notification
 {
     [Column("cod_serial_sistemafinanceiro")]
     public int Id { get; set; }

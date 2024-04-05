@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Financeiro.Common.Enums;
+using Financeiro.Common.Notifications;
 using Financeiro.Data.Configurations.Categorias;
 
 namespace Financeiro.Data.Configurations.Despesas;
 
 [Table("despesa")]
-public class Despesa
+public class Despesa :Notification
 {
     [Column("cod_serial_despesa")]
     public int Id { get; set; }

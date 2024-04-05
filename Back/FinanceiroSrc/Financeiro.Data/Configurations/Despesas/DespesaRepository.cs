@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Financeiro.Data.Configurations.Bases;
 using Financeiro.Data.Data;
 using Microsoft.EntityFrameworkCore;

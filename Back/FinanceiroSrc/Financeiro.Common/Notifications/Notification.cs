@@ -1,17 +1,17 @@
 namespace Financeiro.Common.Notifications;
 
-public sealed class Notification
+public class Notification
 {
     public Notification ()
     {
         Notificacoes = [];
     }
 
-    public string NomePropriedade { get; set; }
-    public string Mensagem { get; set; }
-    public List<Notification>? Notificacoes { get; set; }
+    public string NomePropriedade { get; set; } = string.Empty;
+    public string? Mensagem { get; set; } = string.Empty;
+    public List<Notification> Notificacoes { get; set; }
 
-    public bool ValidarPropriedadeString( string valor, string nomePropriedade)
+    public bool ValidarPropriedadeString( string? valor, string nomePropriedade)
     {
         if(string.IsNullOrEmpty(valor) || string.IsNullOrWhiteSpace(valor))
         {
