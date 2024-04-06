@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Financeiro.Common.Notifications;
 
+[NotMapped]
 public class Notification
 {
     public Notification ()
