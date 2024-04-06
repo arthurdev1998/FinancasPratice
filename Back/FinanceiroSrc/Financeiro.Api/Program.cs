@@ -1,3 +1,4 @@
+using Financeiro.Api.Tokens;
 using Financeiro.Data.Configurations.ApplicationUsers;
 using Financeiro.Data.Configurations.Bases;
 using Financeiro.Data.Configurations.Categorias;
@@ -5,7 +6,9 @@ using Financeiro.Data.Configurations.Despesas;
 using Financeiro.Data.Configurations.SistemasFinanceiros;
 using Financeiro.Data.Configurations.UsuariosSistemasFinanceiro;
 using Financeiro.Data.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +29,37 @@ builder.Services.AddScoped<ISistemaFinanceiro, SistemaFinanceiroRepository>();
 builder.Services.AddScoped<IUsuarioSistemaFinanceiro, UsuarioSistemFinanceiroRepository>();
 
 builder.Services.AddScoped<IUnitofWork, UnitOfWork>();
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddJwtBearer(option =>
+             {
+                 option.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     ValidateIssuer = false,
+                     ValidateAudience = false,
+                     ValidateLifetime = true,
+                     ValidateIssuerSigningKey = true,
+
+                     ValidIssuer = "Teste.Securiry.Bearer",
+                     ValidAudience = "Teste.Securiry.Bearer",
+                     IssuerSigningKey = JwtSecurityKey.Create("Secret_Key-12345678")
+                 };
+
+                 option.Events = new JwtBearerEvents
+                 {
+                     OnAuthenticationFailed = context =>
+                     {
+                         Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
+                         return Task.CompletedTask;
+                     },
+                     OnTokenValidated = context =>
+                     {
+                         Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
+                         return Task.CompletedTask;
+                     }
+                 };
+             });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
