@@ -6,6 +6,7 @@ using Financeiro.Data.Configurations.Despesas;
 using Financeiro.Data.Configurations.SistemasFinanceiros;
 using Financeiro.Data.Configurations.UsuariosSistemasFinanceiro;
 using Financeiro.Data.Data;
+using Financeiro.Services.Services.Usuarios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -36,6 +37,7 @@ builder.Services.AddScoped<IUsuarioSistemaFinanceiro, UsuarioSistemFinanceiroRep
 
 builder.Services.AddScoped<IUnitofWork, UnitOfWork>();
 
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
              .AddJwtBearer(option =>

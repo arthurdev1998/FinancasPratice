@@ -1,6 +1,8 @@
 using System.Text;
+using Financeiro.Common.Dtos.Usuarios;
 using Financeiro.Common.Models;
 using Financeiro.Data.Configurations.ApplicationUsers;
+using Financeiro.Services.Services.Usuarios;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
@@ -13,12 +15,15 @@ public class UsuarioController : ControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly UserService _userService;
 
     public UsuarioController(UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager)
+        SignInManager<ApplicationUser> signInManager,
+        UserService userService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _userService = userService;
     }
 
     [Produces("application/json")]
@@ -64,5 +69,13 @@ public class UsuarioController : ControllerBase
             return Ok("erro ao confirmar cadastro de usuário!");
         }
 
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(List<UsuarioDto>),200)]
+    public async Task<ActionResult<List<UsuarioDto>>> GetAllUsers()
+    {
+        var usuarios =  await _userService.GetAllUsers();
+        return Ok(usuarios);
     }
 }

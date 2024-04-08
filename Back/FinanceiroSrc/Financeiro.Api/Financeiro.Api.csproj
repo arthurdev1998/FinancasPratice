@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Financeiro.Data\Financeiro.Data.csproj" />
+    <ProjectReference Include="..\Financeiro.Services\Financeiro.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
