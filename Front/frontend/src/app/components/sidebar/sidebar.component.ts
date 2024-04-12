@@ -9,10 +9,8 @@ import { MenuService } from 'src/services/menu/menu-service.service';
 })
 export class SidebarComponent {
 
-  constructor(private router: Router, public menuService: MenuService) {
-
-  }
-
+  constructor(private router: Router, public menuService: MenuService) {}
+  
 
   selectMenu(menu: number) {
     switch (menu) {
