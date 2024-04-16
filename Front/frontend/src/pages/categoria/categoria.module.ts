@@ -5,6 +5,8 @@ import { SidebarModule } from "src/app/components/sidebar/sidebar.module";
 import { CategoriaRoatingModule } from "./categoria-routing.module";
 import { CategoriaComponent } from "./categoria.component";
 import { DashboardModule } from "../dashboard/dashboard.module";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     providers:[],
@@ -12,9 +14,14 @@ import { DashboardModule } from "../dashboard/dashboard.module";
     imports:[
         CommonModule,
         CategoriaRoatingModule,
+
+
         NavbarModule,
         SidebarModule,
-        DashboardModule
+        DashboardModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgSelectModule
     ]
 })
 

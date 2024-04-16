@@ -5,6 +5,8 @@ import { SidebarModule } from "src/app/components/sidebar/sidebar.module";
 import { DashboardModule } from "../dashboard/dashboard.module";
 import { DespesaComponent } from "./despesa.component";
 import { DespesaRoatingModule } from "./despesa-routing.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
     providers:[],
@@ -12,10 +14,14 @@ import { DespesaRoatingModule } from "./despesa-routing.module";
     imports:[
         CommonModule,
         DespesaRoatingModule,
+
         NavbarModule,
         SidebarModule,
-        DashboardModule
+        DashboardModule,
+        
+        ReactiveFormsModule,
+        NgSelectModule
     ]
 })
 
-export class CategoriaModule{}
+export class DespesaModule{}
